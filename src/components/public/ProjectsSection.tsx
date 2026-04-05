@@ -5,7 +5,6 @@ import { useSiteSettings } from '../../hooks/useSiteSettings'
 import { useInView } from 'react-intersection-observer'
 import { X, ChevronLeft, ChevronRight, Star, Plane, User, Calendar, Tag } from 'lucide-react'
 import { getImageUrl } from '../../lib/api'
-import { formatDate } from '../../lib/utils'
 
 const CATEGORIES = [
   { key: 'all',         en: 'All',           es: 'Todos' },

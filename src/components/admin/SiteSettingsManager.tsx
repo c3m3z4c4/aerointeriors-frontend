@@ -3,7 +3,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useOrganization } from '../../hooks/useOrganization'
 import api from '../../lib/api'
 import { toast } from 'sonner'
-import { Save, Globe, FileText, Phone, Bot, User } from 'lucide-react'
+import { Save, Globe, FileText, Phone, Bot } from 'lucide-react'
 
 interface SiteSettings {
   id: string; orgId: string

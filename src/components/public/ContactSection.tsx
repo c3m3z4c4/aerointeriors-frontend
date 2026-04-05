@@ -8,7 +8,7 @@ import { useSiteSettings } from '../../hooks/useSiteSettings'
 import { useOrganization } from '../../hooks/useOrganization'
 import { useLanguageStore, useTranslation } from '../../stores/languageStore'
 import api from '../../lib/api'
-import { Phone, Mail, MapPin, Send, Linkedin, Instagram, Facebook, Youtube, Globe } from 'lucide-react'
+import { Phone, Mail, MapPin, Send, Globe } from 'lucide-react'
 
 const schema = z.object({
   name: z.string().min(1), company: z.string().optional(),
@@ -17,10 +17,6 @@ const schema = z.object({
   message: z.string().min(1),
 })
 type FormData = z.infer<typeof schema>
-
-const socialIcons: Record<string, React.ComponentType<{ style?: React.CSSProperties }>> = {
-  LinkedIn: Linkedin, Instagram, Facebook, YouTube: Youtube,
-}
 
 const inputStyle: React.CSSProperties = { width: '100%', background: 'rgba(10,15,30,0.8)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', borderRadius: '12px', padding: '12px 16px', fontSize: '14px', outline: 'none', transition: 'border-color 0.2s', boxSizing: 'border-box' }
 
@@ -69,7 +65,7 @@ export default function ContactSection(): React.ReactElement {
               <div style={{ background: 'rgba(13,21,38,0.75)', backdropFilter: 'blur(12px)', border: '1px solid rgba(14,165,233,0.1)', borderRadius: '16px', padding: '24px' }}>
                 <h3 style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '14px', fontWeight: 600, color: 'white', marginBottom: '16px', marginTop: 0 }}>Follow Us</h3>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-                  {socialLinks.map(link => { const Icon = socialIcons[link.platform] || Globe; return <a key={link.id} href={link.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#64748b', fontSize: '13px', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = '#0ea5e9')} onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = '#64748b')}><Icon style={{ width: '16px', height: '16px' }} />{link.platform}</a> })}
+                  {socialLinks.map(link => { const Icon = Globe; return <a key={link.id} href={link.url} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#64748b', fontSize: '13px', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = '#0ea5e9')} onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = '#64748b')}><Icon style={{ width: '16px', height: '16px' }} />{link.platform}</a> })}
                 </div>
               </div>
             )}

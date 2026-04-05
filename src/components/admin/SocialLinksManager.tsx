@@ -11,7 +11,8 @@ const lbl = { fontSize: '11px', color: '#64748b', display: 'block', marginBottom
 
 export default function SocialLinksManager(): React.ReactElement {
   const { data: links } = useSocialLinks(); const { data: org } = useOrganization(); const qc = useQueryClient()
-  const [showForm, setShowForm] = useState(false); const [form, setForm] = useState<Partial<SocialLink>>({}); const [isEditing, setIsEditing] = useState(false)
+  const [showForm, setShowForm] = useState(false); const [form, setForm] = useState<Partial<SocialLink>>({})
+  const setIsEditing = (_: boolean) => {}
 
   const save = useMutation({
     mutationFn: async (data: Partial<SocialLink>) => {

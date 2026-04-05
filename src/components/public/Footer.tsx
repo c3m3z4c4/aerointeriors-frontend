@@ -1,11 +1,7 @@
-import { Plane, Linkedin, Instagram, Facebook, Youtube, Globe } from 'lucide-react'
+import { Plane, Globe } from 'lucide-react'
 import { useSiteSettings } from '../../hooks/useSiteSettings'
 import { useSocialLinks } from '../../hooks/useSocialLinks'
 import { useLanguageStore, useTranslation } from '../../stores/languageStore'
-
-const socialIcons: Record<string, React.ComponentType<{ style?: React.CSSProperties }>> = {
-  LinkedIn: Linkedin, Instagram, Facebook, YouTube: Youtube,
-}
 
 export default function Footer(): React.ReactElement {
   const { data: settings } = useSiteSettings()
@@ -44,7 +40,7 @@ export default function Footer(): React.ReactElement {
 
           <div>
             <h4 style={{ fontFamily: 'Orbitron, sans-serif', fontWeight: 600, color: 'white', fontSize: '12px', marginBottom: '16px', marginTop: 0, letterSpacing: '0.05em' }}>{t.footer.followUs}</h4>
-            {socialLinks?.map(link => { const Icon = socialIcons[link.platform] || Globe; return (
+            {socialLinks?.map(link => { const Icon = Globe; return (
               <a key={link.id} href={link.url} target="_blank" rel="noopener noreferrer"
                 style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#64748b', textDecoration: 'none', fontSize: '13px', marginBottom: '10px', transition: 'color 0.2s' }}
                 onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = '#0ea5e9')}

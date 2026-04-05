@@ -2,7 +2,7 @@ import { useTeam, type TeamMember } from '../../hooks/useTeam'
 import { useLanguageStore, useTranslation } from '../../stores/languageStore'
 import { useSiteSettings } from '../../hooks/useSiteSettings'
 import { useInView } from 'react-intersection-observer'
-import { Linkedin, User } from 'lucide-react'
+import { Link2, User } from 'lucide-react'
 import { getImageUrl } from '../../lib/api'
 
 function MemberCard({ member, lang, index }: { member: TeamMember; lang: string; index: number }): React.ReactElement {
@@ -31,7 +31,7 @@ function MemberCard({ member, lang, index }: { member: TeamMember; lang: string;
           onMouseEnter={e => ((e.target as HTMLElement).style.color = '#0ea5e9')}
           onMouseLeave={e => ((e.target as HTMLElement).style.color = '#64748b')}
           aria-label={t.team.viewLinkedIn}>
-          <Linkedin style={{ width: '14px', height: '14px' }} /> LinkedIn
+          <Link2 style={{ width: '14px', height: '14px' }} /> LinkedIn
         </a>
       )}
     </div>
